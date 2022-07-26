@@ -3,10 +3,19 @@
 const spawn = require('child_process').spawn;
 
 const name = process.argv[2];
+const yarnFlag = process.argv[3];
+
 if (!name || name.match(/[<>:"\/\\|?*\x00-\x1F]/)) {
   return console.log(`
   Invalid directory name.
-  Usage: create-express-api name-of-api  
+  Usage: create-express-api name-of-api [-y|--yarn]  
+`);
+}
+
+if (!yarnFlag || !yarnFlag.match(/^-(-yarn|y)$/)) {
+  return console.log(`
+  Invalid option flag.
+  Usage: create-express-api name-of-api [-y|--yarn]
 `);
 }
 
@@ -17,7 +26,7 @@ runCommand('git', ['clone', repoURL, name])
     return runCommand('rm', ['-rf', `${name}/.git`]);
   }).then(() => {
     console.log('Installing dependencies...');
-    return runCommand('npm', ['install'], {
+    return runCommand(yarnFlag ? "yarn" : "npm", [yarnFlag ? "" : "install"], {
       cwd: process.cwd() + '/' + name
     });
   }).then(() => {
@@ -25,7 +34,7 @@ runCommand('git', ['clone', repoURL, name])
     console.log('');
     console.log('To get started:');
     console.log('cd', name);
-    console.log('npm run dev');
+    console.log(yarnFlag ? "yarn dev" : "npm run dev");
   });
 
 function runCommand(command, args, options = undefined) {
