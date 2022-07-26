@@ -23,8 +23,9 @@ create-express-api name-of-app [-y|--yarn]
 # with npx
 npx create-express-api name-of-app [-y|--yarn]
 
+"(-y or --yarn flag is optional)"
 # with yarn create
-yarn create-express-api name-of-app [-y|--yarn]
+yarn create create-express-api name-of-app [-y|--yarn]
 ```
 
 This will create a directory with the given name, clone the [express API starter](https://github.com/w3cj/express-api-starter) repo into it, and install dependencies.
