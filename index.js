@@ -12,7 +12,7 @@ if (!name || name.match(/[<>:"\/\\|?*\x00-\x1F]/)) {
 `);
 }
 
-if (!yarnFlag && !yarnFlag.match(/^-(-yarn|y)$/)) {
+if (yarnFlag && !yarnFlag.match(/^-(-yarn|y)$/)) {
   return console.log(`
   Invalid option flag.
   Usage: create-express-api name-of-api [-y|--yarn]
