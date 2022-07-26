@@ -1,4 +1,4 @@
-# create-express-api
+# create-rexpress-api
 
 A CLI to automatically clone the [Express API Starter](https://github.com/w3cj/express-api-starter).
 
