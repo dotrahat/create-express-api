@@ -1,6 +1,8 @@
 #! /usr/bin/env node
 
 const { spawn } = require('child_process');
+const npm = which.sync ('npm');
+
 
 const name = process.argv[2];
 if (!name || name.match(/[<>:"\/\\|?*\x00-\x1F]/)) {
@@ -17,7 +19,7 @@ runCommand('git', ['clone', repoURL, name])
     return runCommand('rm', ['-rf', `${name}/.git`]);
   }).then(() => {
     console.log('Installing dependencies...');
-    return runCommand('npm', ['install'], {
+    return runCommand(npm, ['install'], {
       cwd: process.cwd() + '/' + name
     });
   }).then(() => {
