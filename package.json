@@ -1,8 +1,8 @@
 {
-  "name": "create-express-api",
-  "version": "1.1.0",
+  "name": "create-rexpress-api",
+  "version": "1.2.0",
   "bin": {
-    "create-express-api": "index.js"
+    "create-rexpress-api": "index.js"
   },
   "description": "A CLI to automatically clone the Express API Starter",
   "main": "index.js",
@@ -11,9 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/w3cj/create-express-api.git"
+    "url": "https://github.com/dotrahat/create-rexpress-api.git"
   },
-  "keywords": [],
-  "author": "CJ R. <cj@null.computer> (https://w3cj.now.sh)",
-  "license": "MIT"
+  "author": "dotrahat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dotrahat/create-rexpress-api/issues"
+  },
+  "homepage": "https://github.com/dotrahat/create-rexpress-api#readme"
 }
