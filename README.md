@@ -24,7 +24,7 @@ create-rexpress-api name-of-app [-y|--yarn]
 npx create-rexpress-api name-of-app [-y|--yarn]
 
 # with yarn create
-yarn create express-api name-of-app [-y|--yarn]
+yarn create rexpress-api name-of-app [-y|--yarn]
 
 # -y or --yarn flag is optional
 ```
