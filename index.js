@@ -1,8 +1,6 @@
 #! /usr/bin/env node
 
-const { spawn } = require('child_process');
-const npm = which.sync ('npm');
-
+const spawn = require('child_process').spawn;
 
 const name = process.argv[2];
 if (!name || name.match(/[<>:"\/\\|?*\x00-\x1F]/)) {
@@ -19,7 +17,7 @@ runCommand('git', ['clone', repoURL, name])
     return runCommand('rm', ['-rf', `${name}/.git`]);
   }).then(() => {
     console.log('Installing dependencies...');
-    return runCommand(npm, ['install'], {
+    return runCommand('npm', ['install'], {
       cwd: process.cwd() + '/' + name
     });
   }).then(() => {
@@ -31,6 +29,11 @@ runCommand('git', ['clone', repoURL, name])
   });
 
 function runCommand(command, args, options = undefined) {
+  var windowsEnvironment = process.platform === "win32";
+  if (command === 'npm' && windowsEnvironment) {
+    var command = 'npm.cmd'
+    // var command = process.execPath
+  } 
   const spawned = spawn(command, args, options);
 
   return new Promise((resolve) => {
